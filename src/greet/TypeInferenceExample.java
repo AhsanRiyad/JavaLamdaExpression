@@ -10,6 +10,7 @@ public class TypeInferenceExample {
 		 */
 		
 		printLamda(s->s.length());
+//		printLamda(s->2);
 		
 	}
 
