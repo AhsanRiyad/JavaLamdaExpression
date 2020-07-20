@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Unit1ExcerciseSolutionJava8 {
 
@@ -29,20 +31,20 @@ public class Unit1ExcerciseSolutionJava8 {
 		
 		//step 3
 		System.out.println("Printing conditionally");
-		printConditionally(People, p -> p.getLastName().startsWith("C"));
+		performConditionally(People, p -> p.getLastName().startsWith("C"), p -> System.out.println('p' ) );
 		
 	}
 
-	
-	private static void printConditionally(List<Persons> People, Condition condition) {
+	//java.util.function=> Predicate just has a funtion and it return a boolean,
+	// and the calling method also returns a boolean
+	private static void performConditionally(List<Persons> People, Predicate<Persons> condition , Consumer<Persons> consumer) {
 		for( Persons P: People ) {
 			if( condition.test(P) ) {
-				System.out.println(P);
+				consumer.accept(P);
 			}
 		}
 		
 	}
-	
 	
 	private static void printAll(List<Persons> People) {
 		for(Persons p: People) {

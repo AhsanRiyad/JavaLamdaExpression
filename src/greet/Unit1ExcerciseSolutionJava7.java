@@ -68,7 +68,6 @@ public class Unit1ExcerciseSolutionJava7 {
 	
 }
 
-
 interface Condition{
-	public boolean test(Persons P);
+	public boolean test(Persons p);
 }
