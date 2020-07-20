@@ -18,6 +18,7 @@ public class Unit1ExcerciseSolutionJava7 {
 		
 		//step 2
 		//print all
+		System.out.println("Printing all person");
 		printAll(People);
 		
 		
@@ -35,14 +36,22 @@ public class Unit1ExcerciseSolutionJava7 {
 		
 		
 		//step 3
-		printLastNameBeginWithC(People);
+		System.out.println("Printing conditionally");
+		printConditionally(People, new Condition() {
+			
+			@Override
+			public boolean test(Persons P) {
+				// TODO Auto-generated method stub
+				return P.getLastName().startsWith("C");
+			}
+		});
 		
 	}
 
 	
-	private static void printLastNameBeginWithC(List<Persons> People) {
+	private static void printConditionally(List<Persons> People, Condition condition) {
 		for( Persons P: People ) {
-			if( P.getLastName().startsWith("C") ) {
+			if( condition.test(P) ) {
 				System.out.println(P);
 			}
 		}
@@ -57,4 +66,9 @@ public class Unit1ExcerciseSolutionJava7 {
 	}
 	
 	
+}
+
+
+interface Condition{
+	public boolean test(Persons P);
 }
